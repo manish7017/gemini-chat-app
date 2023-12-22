@@ -30,15 +30,4 @@ document.addEventListener("DOMContentLoaded", function () {
     chatBox.appendChild(messageDiv);
     chatBox.scrollTop = chatBox.scrollHeight;
   }
-
-  async function fetchChatHistory() {
-    const response = await fetch("/chat-history");
-    const history = await response.json();
-
-    history.forEach(({ sender, text, type }) => {
-      appendMessage(sender, text, type);
-    });
-  }
-
-  fetchChatHistory();
 });
